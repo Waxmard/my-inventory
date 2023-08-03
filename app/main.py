@@ -1,9 +1,13 @@
-from db.session import init_db, insert_new_item
+from db.session import init_db
 from db.read import query_all_items
+from routers import inventory
+from fastapi import FastApi
 
-conn = init_db()
-insert_new_item(conn, 'clorox wipes', 10, 'Cleaning wipes')
-insert_new_item(conn, 'grout cleaner', 5, 'For cleaning grout')
+
+app = FastApi()
+app.include_router(inventory.router, prefix="/inventory")
+
+conn = init_db(db_name='inventory.db')
 
 for item in query_all_items(conn):
     print(item)

@@ -2,11 +2,10 @@ import os
 import sqlite3
 
 
-def _create_connection(db_name='inventory.db'):
+def _create_connection(db_name: str):
     db_path = '.db/' + db_name
     if not os.path.exists('.db'):
         os.makedirs('.db')
-    # Connect to SQLite database (or create it if it doesn't exist)
     conn = sqlite3.connect(db_path)
     return conn
 
@@ -19,14 +18,13 @@ def _create_table(conn):
         name TEXT NOT NULL,
         quantity INTEGER NOT NULL,
         description TEXT,
-        photo BLOB
     )
     """)
     conn.commit()
 
 
-def init_db():
-    conn = _create_connection()
+def init_db(db_name):
+    conn = _create_connection(db_name)
     _create_table(conn)
     return conn
 
