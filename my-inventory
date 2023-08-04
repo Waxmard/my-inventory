@@ -1,2 +1,2 @@
 #!/bin/bash
-python3.11 app/main.py
+uvicorn proj.main:app --reload
