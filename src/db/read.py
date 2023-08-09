@@ -1,4 +1,4 @@
-from proj.models.item import Item
+from src.models.item import Item
 
 
 def query_all_items(conn) -> list[Item]:

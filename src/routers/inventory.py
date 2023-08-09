@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException
 
-from proj.db.create import insert_new_item
-from proj.db.read import query_all_items
-from proj.db.session import get_conn
-from proj.models.item import Item
+from src.db.create import insert_new_item
+from src.db.read import query_all_items
+from src.db.session import get_conn
+from src.models.item import Item
 
 router = APIRouter()
 

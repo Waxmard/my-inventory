@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-from proj.settings import DB_NAME
+from src.settings import DB_NAME
 
 
 def _create_connection():
